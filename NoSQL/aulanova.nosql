@@ -1,0 +1,355 @@
+Criando um banco de dados:
+
+use crud
+ 
+Criando collection e dados:
+
+db.create.insertOne({ nome: "Wecton", idade: 20, trabalha: true,
+hobbies: ["Jogar futebol", "cinema" ]})
+ 
+Exibir collections:
+show collections
+ 
+Exibir documentos:
+db.create.find()
+ 
+Criar mais um documento na collection acima:
+db.create.insertOne({ nome: "Nicolle", idade: 19 })
+ 
+Exibir documentos:
+db.create.find()
+ 
+Criando vários documentos ao mesmo tempo:
+db.provas.insertMany([
+{ nome: "Nicolle", notas: [10, 8, 8] },
+{ nome: "Samuel", notas: [10, 8, 8] }
+])
+ 
+Vendo os documentos:
+db.provas.find()
+ 
+Criando um documento com o próprio id:
+db.provas.insertOne({_id: "100", nome: "Leonardo",
+notas: [9, 7, 8]})
+ 
+Vendo os documentos:
+db.provas.find()
+ 
+Criar um novo banco chamado:
+use livros
+ 
+Excluindo do banco:
+db.dropDatabase()
+ 
+Comando para criar um banco e collection, importando dados (no caminho da pasta):
+mongoimport --db biblioteca --collection livros --file livros-tecnologia.json --jsonArray
+ 
+Ver os registros organizados:
+db.livros.find().pretty()
+ 
+Comando para buscar um dado específico:
+db.livros.find({ numerodepaginas: 340 })
+ 
+Comando para buscar documento entre valores:
+db.livros.find({ numerodepaginas: {$in:[200, 280]}})
+ 
+Comando equivalente ao AND:
+db.livros.find({ numerodepaginas: 200, autor: "Aline Fernandes" }).pretty()
+db.livros.find({ numerodepaginas: 280, autor: "Aline Fernandes" }).pretty()
+ 
+Busca greater than, ou seja, maior que:
+db.livros.find({numerodepaginas: {$gt: 300}}).pretty()
+ 
+Busca letter than, ou seja, menor que:
+db.livros.find({numerodepaginas: {$lt: 300}}).pretty()
+ 
+Comando equivalente ao OR:
+db.livros.find({$or: [{numerodepaginas: {$lt: 290}}, {id: {$gt: 40}}]}).pretty()
+ 
+Contando a quantidade de dados:
+db.livros.find({ numerodepaginas: {$gt: 285}}).count()
+ 
+Buscar um documento específico:
+db.livros.find({ id: 47 })
+ 
+Atualizando dados com método updateOne:
+db.livros.updateOne({ id: 47 }, {$set: {numerodepaginas: 340}})
+ 
+Buscar um documento específico:
+db.livros.find({ id: 47 })
+ 
+Atualizando dados com método updateOne:
+db.livros.updateOne({ id: 47 }, {$set: {numerodepaginas: 415}})
+ 
+Buscar um documento específico:
+db.livros.find({ numerodepaginas: 260 })
+ 
+Atualizando vários documentos ao mesmo tempo:
+db.livros.updateMany({numerodepaginas: 260}, {$set: {numerodepaginas: 262}})
+ 
+Buscar um documento específico:
+db.livros.find({ numerodepaginas: 260 })
+ 
+Atualizando vários documentos ao mesmo tempo:
+db.livros.updateMany({numerodepaginas: 262}, {$set: {numerodepaginas: 260}})
+ 
+Buscar um documento específico:
+db.livros.find({ numerodepaginas: 260 })
+ 
+Atualizando documento usando update para inserir um valor para chave que não existe:
+db.livros.updateMany({ datadapublicacao: '2017-03-11'}, {$set: {qntvendas: 5}})
+ 
+Buscar um documento específico:
+db.livros.find({ datadapublicacao: '2017-03-11' })
+ 
+Criar mais um banco de dados:
+use escola
+ 
+ Criando collection e inserindo document:
+db.alunos.insertOne({id: 01, nome:"José", turma: "A-tarde"})
+ 
+Buscando document:
+db.alunos.find()
+ 
+Comando para substituir todos os dados de uma vez:
+db.alunos.replaceOne({ id: 01 }, {trancamento: true})
+ 
+Buscando document:
+db.alunos.find()
+ 
+Criando um banco de dados:
+
+use crud
+ 
+Criando collection e dados:
+
+db.create.insertOne({ nome: "Wecton", idade: 20, trabalha: true,
+hobbies: ["Jogar futebol", "cinema" ]})
+ 
+Exibir collections:
+show collections
+ 
+Exibir documentos:
+db.create.find()
+ 
+Criar mais um documento na collection acima:
+db.create.insertOne({ nome: "Nicolle", idade: 19 })
+ 
+Exibir documentos:
+db.create.find()
+ 
+Criando vários documentos ao mesmo tempo:
+db.provas.insertMany([
+{ nome: "Nicolle", notas: [10, 8, 8] },
+{ nome: "Samuel", notas: [10, 8, 8] }
+])
+ 
+Vendo os documentos:
+db.provas.find()
+ 
+Criando um documento com o próprio id:
+db.provas.insertOne({_id: "100", nome: "Leonardo",
+notas: [9, 7, 8]})
+ 
+Vendo os documentos:
+db.provas.find()
+ 
+Criar um novo banco chamado:
+use livros
+ 
+Excluindo do banco:
+db.dropDatabase()
+ 
+Comando para criar um banco e collection, importando dados (no caminho da pasta):
+mongoimport --db biblioteca --collection livros --file livros-tecnologia.json --jsonArray
+ 
+Ver os registros organizados:
+db.livros.find().pretty()
+ 
+Comando para buscar um dado específico:
+db.livros.find({ numerodepaginas: 340 })
+ 
+Comando para buscar documento entre valores:
+db.livros.find({ numerodepaginas: {$in:[200, 280]}})
+ 
+Comando equivalente ao AND:
+db.livros.find({ numerodepaginas: 200, autor: "Aline Fernandes" }).pretty()
+db.livros.find({ numerodepaginas: 280, autor: "Aline Fernandes" }).pretty()
+ 
+Busca greater than, ou seja, maior que:
+db.livros.find({numerodepaginas: {$gt: 300}}).pretty()
+ 
+Busca letter than, ou seja, menor que:
+db.livros.find({numerodepaginas: {$lt: 300}}).pretty()
+ 
+Comando equivalente ao OR:
+db.livros.find({$or: [{numerodepaginas: {$lt: 290}}, {id: {$gt: 40}}]}).pretty()
+ 
+Contando a quantidade de dados:
+db.livros.find({ numerodepaginas: {$gt: 285}}).count()
+ 
+Buscar um documento específico:
+db.livros.find({ id: 47 })
+ 
+Atualizando dados com método updateOne:
+db.livros.updateOne({ id: 47 }, {$set: {numerodepaginas: 340}})
+ 
+Buscar um documento específico:
+db.livros.find({ id: 47 })
+ 
+Atualizando dados com método updateOne:
+db.livros.updateOne({ id: 47 }, {$set: {numerodepaginas: 415}})
+ 
+Buscar um documento específico:
+db.livros.find({ numerodepaginas: 260 })
+ 
+Atualizando vários documentos ao mesmo tempo:
+db.livros.updateMany({numerodepaginas: 260}, {$set: {numerodepaginas: 262}})
+ 
+Buscar um documento específico:
+db.livros.find({ numerodepaginas: 260 })
+ 
+Atualizando vários documentos ao mesmo tempo:
+db.livros.updateMany({numerodepaginas: 262}, {$set: {numerodepaginas: 260}})
+ 
+Buscar um documento específico:
+db.livros.find({ numerodepaginas: 260 })
+ 
+Atualizando documento usando update para inserir um valor para chave que não existe:
+db.livros.updateMany({ datadapublicacao: '2017-03-11'}, {$set: {qntvendas: 5}})
+ 
+Buscar um documento específico:
+db.livros.find({ datadapublicacao: '2017-03-11' })
+ 
+Criar mais um banco de dados:
+use escola
+ 
+ Criando collection e inserindo document:
+db.alunos.insertOne({id: 01, nome:"José", turma: "A-tarde"})
+ 
+Buscando document:
+db.alunos.find()
+ 
+Comando para substituir todos os dados de uma vez:
+db.alunos.replaceOne({ id: 01 }, {trancamento: true})
+ 
+Buscando document:
+db.alunos.find()
+ 
+para mostrar todos os bancos de dados cadastrados usamos:
+show dbs
+
+para entrar no banco de dados:
+use escola
+
+para mostrar as collections dentro do banco:
+show collections
+
+criando uma collections com array:
+db.materias.insertOne({id: 1, tipos: ["matematica", "portugues"]})
+
+buscando o documento:
+db.materias.find()
+
+atualizar o array inserindo uma materia no final:
+db.materiais.updateOne({id: 1}, {$push: {tipos: "geografia"}})
+
+buscando o documento:
+db.materiais.find()
+
+inserindo 3 novos documentos:
+db.alunos.insertOne({id: 2, nome: "Jose" })
+db.alunos.insertOne({id: 3, nome: "Priscila" })
+db.alunos.insertOne({id: 4, nome: "Jamile" })
+
+Buscando document:
+db.alunos.find()
+
+Deletar um document especifico:
+db.alunos.deleteOne({id: 4})
+
+Buscando document:
+db.alunos.find()
+
+Inserindo mais dois documents :
+db.alunos.insertOne({id: 5, nome: "Fernando", categoria: "aprovado"})
+db.alunos.insertOne({id: 6, nome: "Fabiola", categoria: "aprovado"})    
+
+    Buscando document:
+    db.alunos.find()
+
+Deletando vários documents com dados em comum:
+db.alunos.deleteMany({categoria: "aprovado"})
+
+Buscando document:
+db.alunos.find()
+
+Removendo todos os documents da collection de uma só vez:
+db.alunos.deleteMany({})
+
+Buscando document:
+db.alunos.find()
+
+Exibindo as collections:
+show collections
+
+Deletando as collections :
+db.alunos.drop()
+    db.materias.drop()
+
+Exibir as collections:
+show collections
+
+exibir todos os banco de dados:
+show dbs
+
+acessar o banco de dados crud e deletar:
+use crud 
+db.dropDatabase()
+
+Acessar o banco biblioteca e deletar:
+use biblioteca
+db.dropDatabase()
+
+exibir os bancos de dados:
+show dbs
+
+Criar novamente o banco de dados escola:
+use escola
+
+Criar usuarios que somentem leem e escrevem:
+db.createUser({user: "alunouser",pwd: "senha123",roles: [{ role: "readWrite", db: "escola" }]})
+
+Criar usuario que somente faz leitura:
+    db.createUser({user: "alunoLeitor",pwd: "senhaLeitura",roles:[  { role: "read", db: "escola" }  ]})
+
+Listar os usuarios existentes no banco:
+
+Deletando usuarios existentes no banco:
+db.dropUser("alunouser")
+db.dropUser("alunoLeitor")
+
+Deletar todos os usuarios ao mesmo tempo:
+db.getUsers().user.forEach(u => {db.dropUser(u.user)})
+
+Criando um usuario admin:
+db.createUser({user: "admin",pwd: "SenhaMuitoForte123!", roles: [ { role: "root", db: "escola" }] })
+
+Acessar o admin usando:
+use admin
+
+pegando usuarios do admin
+    db.getUsers()
+
+
+Excluindo o usuario do admin
+db.dropUser("admin")
+
+Listar os usuarios existentes no banco:
+db.getUsers()
+
+acessar o banco escola
+use escola
+
+db.dropDatabase()
+apagando o bd 
